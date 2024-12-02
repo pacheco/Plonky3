@@ -249,7 +249,22 @@ impl Field for Goldilocks {
         }
     }
 
+    #[cfg(all(target_os = "zkvm", target_arch = "riscv32"))]
     fn try_inverse(&self) -> Option<Self> {
+        panic!();
+        //     if self.is_zero() {
+        //         return None;
+        //     }
+
+        //     use powdr_riscv_runtime::goldilocks;
+        //     let n = goldilocks::Goldilocks::new(self.value);
+
+        //     todo!()
+    }
+
+    #[cfg(not(all(target_os = "zkvm", target_arch = "riscv32")))]
+    fn try_inverse(&self) -> Option<Self> {
+        panic!();
         if self.is_zero() {
             return None;
         }

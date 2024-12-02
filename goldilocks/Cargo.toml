@@ -18,6 +18,13 @@ num-bigint = { version = "0.4.3", default-features = false }
 rand = "0.8.5"
 serde = { version = "1.0", default-features = false, features = ["derive"] }
 
+[target.'cfg(all(target_os = "zkvm", target_arch = "riscv32"))'.dependencies]
+powdr-riscv-runtime = { git = "https://github.com/powdr-labs/powdr.git", features = [
+  "std",
+  # "getrandom",
+  # "allow_fake_rand",
+] }
+
 [dev-dependencies]
 p3-field-testing = { path = "../field-testing" }
 p3-poseidon = { path = "../poseidon" }
