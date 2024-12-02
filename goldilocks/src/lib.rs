@@ -264,7 +264,6 @@ impl Field for Goldilocks {
 
     #[cfg(not(all(target_os = "zkvm", target_arch = "riscv32")))]
     fn try_inverse(&self) -> Option<Self> {
-        panic!();
         if self.is_zero() {
             return None;
         }
