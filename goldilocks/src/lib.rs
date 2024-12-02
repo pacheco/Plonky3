@@ -256,7 +256,9 @@ impl Field for Goldilocks {
         }
 
         use powdr_riscv_runtime::goldilocks;
-        let n: u64 = goldilocks::Goldilocks::new(self.value).inverse().into();
+        let n: u64 = goldilocks::Goldilocks::new(self.as_canonical_u64())
+            .inverse()
+            .into();
         Some(Self::new(n))
     }
 
