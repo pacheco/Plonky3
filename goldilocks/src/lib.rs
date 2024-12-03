@@ -259,7 +259,7 @@ impl Field for Goldilocks {
         let n: u64 = goldilocks::Goldilocks::new(self.as_canonical_u64())
             .inverse()
             .into();
-        Some(Self::new(n))
+        Some(Self::from_canonical_u64(n))
     }
 
     #[cfg(not(all(target_os = "zkvm", target_arch = "riscv32")))]
